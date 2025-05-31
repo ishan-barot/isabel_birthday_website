@@ -1,0 +1,221 @@
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+:root {
+  --pastel-pink: #FFE4E6;
+  --soft-cream: #FFF8F0;
+  --lavender: #E6E6FA;
+  --sky-blue: #E0F6FF;
+  --sage: #F0F8F0;
+  --sunset-gold: #FFE5B4;
+  --rose-pink: #FFB6C1;
+  --cherry-blossom: #FFB7C5;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: Georgia, serif;
+  background: linear-gradient(to bottom, var(--pastel-pink), var(--lavender), var(--sky-blue));
+  min-height: 100vh;
+}
+
+body {
+  color: #4A4A4A;
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.script-font {
+  font-family: 'Dancing Script', cursive;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--rose-pink);
+  animation: float 3s ease-in-out infinite;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--sunset-gold);
+  border-radius: 50%;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.petal {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: var(--cherry-blossom);
+  border-radius: 50% 0 50% 0;
+  animation: petal-fall 8s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--soft-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rose-pink);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cherry-blossom);
+}
+
+/* Suppress hydration warnings */
+.hydration-safe {
+  opacity: 1;
+}
+
+/* Button hover effects */
+.magical-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+}
+
+.magical-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.5);
+}
+
+/* Wordle grid styling */
+.wordle-grid {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.wordle-cell {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--rose-pink);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: var(--soft-cream);
+  transition: all 0.3s ease;
+}
+
+.wordle-cell.correct {
+  background: #90EE90;
+  border-color: #90EE90;
+  color: white;
+}
+
+.wordle-cell.present {
+  background: var(--sunset-gold);
+  border-color: var(--sunset-gold);
+  color: white;
+}
+
+.wordle-cell.absent {
+  background: #D3D3D3;
+  border-color: #D3D3D3;
+  color: white;
+}
+
+.wordle-keyboard {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.keyboard-key {
+  padding: 12px 8px;
+  border: none;
+  border-radius: 6px;
+  background: var(--soft-cream);
+  border: 2px solid var(--rose-pink);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 35px;
+}
+
+.keyboard-key:hover {
+  background: var(--pastel-pink);
+  transform: translateY(-1px);
+}
+
+.keyboard-key.correct {
+  background: #90EE90;
+  border-color: #90EE90;
+  color: white;
+}
+
+.keyboard-key.present {
+  background: var(--sunset-gold);
+  border-color: var(--sunset-gold);
+  color: white;
+}
+
+.keyboard-key.absent {
+  background: #D3D3D3;
+  border-color: #D3D3D3;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .wordle-cell {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .keyboard-key {
+    padding: 10px 6px;
+    min-width: 28px;
+    font-size: 0.9rem;
+  }
+}
